@@ -3,13 +3,14 @@ import firebase from 'firebase';
 // eslint-disable-next-line
 import firestore from "./Firestore";
 
-class User extends React.Component {
+class Customer extends React.Component {
 
     constructor() {
      super();
       this.state = {
-        email: "",
         fullname: "",
+        email: "",
+        businessname: "",
       };
     }
 
@@ -26,13 +27,15 @@ class User extends React.Component {
           timestampsInSnapshots: true
         });
         // eslint-disable-next-line
-        const userRef = db.collection("users").add({
+        const userRef = db.collection("customers").add({
           fullname: this.state.fullname,
-          email: this.state.email
+          email: this.state.email,
+          businessname: this.state.businessname
         });  
         this.setState({
           fullname: "",
-          email: ""
+          email: "",
+          businessname: "",
         });
       };
 
@@ -54,9 +57,16 @@ class User extends React.Component {
             onChange={this.updateInput}
             value={this.state.email}
           />
+          <input
+            type="text"
+            name="businessname"
+            placeholder="Business Name"
+            onChange={this.updateInput}
+            value={this.state.businessname}
+          />
           <button type="submit">Submit</button>
         </form>
         );
       }
    }
-export default User;
+export default Customer;
