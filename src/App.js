@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 
 // eslint-disable-next-line
-import User from './User';
-
-import Merchant from './Merchant';
+import User from '.models/User';
+import Merchant from '.models/Merchant';
 
 class App extends Component {
   render() {
