@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 
+# ignore API credentials
+/src/config/Firestore.js
 # testing
 /coverage
 
