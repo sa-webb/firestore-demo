@@ -1,4 +1,6 @@
-# [Firestore Demo](https://firebase.google.com/products/firestore/)
+# Firestore Demo
+
+Checkout Google's [Firestore](https://firebase.google.com/products/firestore/) here.\
 
 ## Installation
 
