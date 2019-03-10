@@ -12,6 +12,8 @@ class Customer extends React.Component {
         email: "",
         businessname: "",
       };
+      this.updateInput = this.updateInput.bind(this);
+      this.addUser = this.addUser.bind(this);
     }
 
     updateInput = e => {
@@ -27,7 +29,7 @@ class Customer extends React.Component {
           timestampsInSnapshots: true
         });
         // eslint-disable-next-line
-        const userRef = db.collection("customers").add({
+        db.collection("customers").add({
           fullname: this.state.fullname,
           email: this.state.email,
           businessname: this.state.businessname
@@ -38,6 +40,16 @@ class Customer extends React.Component {
           businessname: "",
         });
       };
+
+      getCustomers = e => {
+        e.preventDefault();
+        const db = firebase.firestore();
+        db.collection("items").get().then(function (querySnapshot) {
+          querySnapshot.forEach(function (doc) {
+            console.log(doc.id, " => ", doc.data());
+          });
+        });
+      }
 
   render() {
     return (
@@ -66,6 +78,7 @@ class Customer extends React.Component {
           />
           <button type="submit">Submit</button>
         </form>
+        
         );
       }
    }
